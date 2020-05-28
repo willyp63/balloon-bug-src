@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6911322855734508424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6911322855734508430}
+  - component: {fileID: 6911322855734508431}
+  m_Layer: 0
+  m_Name: Menu Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6911322855734508430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911322855734508424}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6911322855734508431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6911322855734508424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788037b17417a46bfbc6e65abd636082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numEnemiesSlider: {fileID: 0}
+  numEnemiesText: {fileID: 0}
+  characterSprites:
+  - {fileID: 8358477550372723593, guid: 721e275b76bab49159bf7a11ba75551a, type: 3}
+  - {fileID: 5006022577673279214, guid: 721e275b76bab49159bf7a11ba75551a, type: 3}
+  - {fileID: 7802246387968359877, guid: 721e275b76bab49159bf7a11ba75551a, type: 3}
+  - {fileID: 5523103090258218103, guid: 721e275b76bab49159bf7a11ba75551a, type: 3}
+  player1CharacterImage: {fileID: 0}
+  player2CharacterImage: {fileID: 0}
