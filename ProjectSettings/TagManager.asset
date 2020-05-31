@@ -4,7 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Wall
+  - Hazard
   - Enemy
+  - Player Bug
+  - Enemy Bug
+  - Player Balloon
+  - Enemy Balloon
+  - Balloon Hazard
   layers:
   - Default
   - TransparentFX
@@ -14,8 +21,8 @@ TagManager:
   - UI
   - 
   - 
-  - Bug
-  - Balloon
+  - 
+  - 
   - 
   - 
   - 

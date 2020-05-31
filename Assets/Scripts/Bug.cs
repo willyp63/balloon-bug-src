@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bug : MonoBehaviour
+public abstract class Bug : MonoBehaviour
 {
   public float moveForce = 200f;
   public float jumpForce = 200f;
@@ -21,7 +21,7 @@ public class Bug : MonoBehaviour
   protected float startingMass;
 
   // Start is called before the first frame update
-  public void Start()
+  public virtual void Start()
   {
     gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     rb = GetComponent<Rigidbody2D>();
@@ -36,6 +36,7 @@ public class Bug : MonoBehaviour
 
   public void Move(float input)
   {
+    if (input == 0) { return; }
     if (gameController.IsPaused()) { return; }
 
     var force = new Vector2(input * Time.deltaTime * moveForce, 0);
@@ -65,9 +66,10 @@ public class Bug : MonoBehaviour
   {
     numBalloons--;
     UpdateMass();
+    Debug.Log("Pop");
   }
 
-  public void Update()
+  public virtual void Update()
   {
     if (jumpCooldown < jumpCooldownLength)
     {
@@ -75,7 +77,7 @@ public class Bug : MonoBehaviour
     }
   }
 
-  public void FixedUpdate()
+  public virtual void FixedUpdate()
   {
     if (isJumpQueued)
     {
@@ -88,17 +90,11 @@ public class Bug : MonoBehaviour
     var newPos = transform.position;
     newPos.x = WarpSides(newPos.x, stageDimensions.x);
     transform.position = newPos;
-
-    // kill bug if it hits bottom of screen
-    if (transform.position.y <= -stageDimensions.y)
-    {
-      Destroy(gameObject);
-    }
   }
 
   private void UpdateMass()
   {
-    rb.mass = startingMass * (1 + (maxMassMultiplier - 1) * ((3 - numBalloons) / 3f)) ;
+    rb.mass = startingMass * (1 + (maxMassMultiplier - 1) * ((3 - numBalloons) / 3f));
   }
 
   private float WarpSides(float pos, float max)
@@ -117,5 +113,13 @@ public class Bug : MonoBehaviour
     }
 
     return newPos;
+  }
+
+  void OnCollisionEnter2D(Collision2D collision)
+  {
+    if (collision.gameObject.tag == "Hazard")
+    {
+      Destroy(gameObject);
+    }
   }
 }

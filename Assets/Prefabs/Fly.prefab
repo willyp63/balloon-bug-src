@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4054914077290621621}
   - component: {fileID: 2224729195008265528}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bug Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6679152944306208566}
   - component: {fileID: 6679152944306208521}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rope Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,9 +146,9 @@ GameObject:
   - component: {fileID: 3445485087324464822}
   - component: {fileID: 6679152944539139176}
   - component: {fileID: 6097762870673622492}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fly
-  m_TagString: Player
+  m_TagString: Player Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,18 +181,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6679152944539139178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7e831ec467643f189ee93cd03ad02f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fe92f7762bf145d5bec5def65c736a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 400
-  jumpForce: 250
-  jumpCooldownLength: 5
-  maxMassMultiplier: 2
+  moveForce: 300
+  jumpForce: 300
+  jumpCooldownLength: 2
+  maxMassMultiplier: 1.5
   bugSprite: {fileID: 4054914077290621621}
   balloonSprites:
   - {fileID: 8180926312752882044}
   - {fileID: 8180926313273788280}
   - {fileID: 8180926313419381697}
+  energyRegenRate: 0.1
+  abilityEnergyCost: 0.33
+  blinkForce: 350
 --- !u!50 &6679152944539139176
 Rigidbody2D:
   serializedVersion: 4
@@ -205,7 +208,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.9
+  m_Mass: 1
   m_LinearDrag: 0.25
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -227,7 +230,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010163277, y: -0.23551849}
+  m_Offset: {x: 0, y: -0.23551849}
   serializedVersion: 2
   m_Radius: 0.34120038
 --- !u!1001 &6679152945286494844
@@ -297,25 +300,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.636
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814617
+      value: -0.030923188
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.2661269
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.007265117
+      value: -0.018049452
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.022541389
+      value: 0.010012403
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -403,25 +411,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.207
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814334
+      value: -0.03092313
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899991
+      value: 1.2661269
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0013484694
+      value: -0.0085282065
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.014645591
+      value: 0.025962487
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -509,25 +522,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -50.215004
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814677
+      value: -0.030923307
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899991
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0002331473
+      value: 0.013180044
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.0016463846
+      value: 0.03734888
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}

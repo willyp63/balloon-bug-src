@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7058962758459695989
+--- !u!1 &8305014872243563221
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7058962758459695987}
-  - component: {fileID: 7058962758459695988}
+  - component: {fileID: 5695165372999967236}
+  - component: {fileID: 8918301804600909522}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -17,31 +17,44 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7058962758459695987
+--- !u!4 &5695165372999967236
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058962758459695989}
+  m_GameObject: {fileID: 8305014872243563221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.324573, y: 5.8777413, z: -37.785427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7058962758459695988
+--- !u!114 &8918301804600909522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7058962758459695989}
+  m_GameObject: {fileID: 8305014872243563221}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc1ea7ea70b4e4f3ea69e9dff70b681c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   centerGameText: {fileID: 0}
-  characterPrefabs: []
+  characterPrefabs:
+  - {fileID: 3445485087324464822, guid: 35e7c0683bf404c3c8d21f0aaab9f03d, type: 3}
+  - {fileID: 4439385360147955836, guid: 526b12ac65855442e8bd272a4ed77892, type: 3}
+  - {fileID: 7495241022303438504, guid: 6b3b6965d1ed8491a978b085de12e9bd, type: 3}
+  player1Spawn: {fileID: 0}
+  player2Spawn: {fileID: 0}
+  enemyBugPrefab: {fileID: 5507219662016872147, guid: 7698f75c26f9348659040607d709f9ea,
+    type: 3}
+  enemySpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

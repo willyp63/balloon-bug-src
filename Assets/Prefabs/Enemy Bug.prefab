@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8084960753721248565}
   - component: {fileID: 5130931282678494608}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bug Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5429119567030096995, guid: 721e275b76bab49159bf7a11ba75551a,
+  m_Sprite: {fileID: 5006022577673279214, guid: 721e275b76bab49159bf7a11ba75551a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,10 +93,10 @@ GameObject:
   - component: {fileID: 7104975638728053345}
   - component: {fileID: 5507219662016872147}
   - component: {fileID: 7104975638728053407}
-  - component: {fileID: 4194588371482580928}
-  m_Layer: 8
+  - component: {fileID: 1229696105404602484}
+  m_Layer: 0
   m_Name: Enemy Bug
-  m_TagString: Enemy
+  m_TagString: Enemy Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,6 +138,15 @@ MonoBehaviour:
   maxMassMultiplier: 1.5
   bugSprite: {fileID: 8084960753721248565}
   randomJumpChance: 0.015
+  playerBalloonCheckRadius: 16
+  hazardCheckRadius: 8
+  enemyBalloonCheckRadius: 12
+  moveInputConstant: 0.75
+  dangerYVelocity: 5
+  balloonColliders:
+  - {fileID: 6593328716350245103}
+  - {fileID: 6593328715597586697}
+  - {fileID: 6593328715930280509}
 --- !u!50 &7104975638728053407
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +159,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.1
   m_LinearDrag: 0.25
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -159,8 +168,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4194588371482580928
-CircleCollider2D:
+--- !u!70 &1229696105404602484
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -172,9 +181,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.013385773, y: -0.08229828}
-  serializedVersion: 2
-  m_Radius: 0.38338184
+  m_Offset: {x: 0, y: -0.14215793}
+  m_Size: {x: 1.25, y: 0.6}
+  m_Direction: 1
 --- !u!1 &8554964199193558444
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8554964199193558482}
   - component: {fileID: 8554964199193558483}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rope Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554964199193558444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00800588, y: 0.0054057837, z: 0}
+  m_LocalPosition: {x: 0.00800588, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7104975638728053345}
@@ -242,17 +251,17 @@ PrefabInstance:
     - target: {fileID: 3258744743371169072, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2490058
+      value: 3.216
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0715942
+      value: -2.17
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -317,27 +326,32 @@ PrefabInstance:
     - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy Balloon
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814554
+      value: -0.030923244
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.0052315965
+      value: -0.015290283
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0073114634
+      value: 0.013614234
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -347,13 +361,19 @@ PrefabInstance:
     - target: {fileID: 3258744744877113773, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bf6653333f2405f909b0f877cf5d89, type: 3}
 --- !u!4 &6593328715371996170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
+    type: 3}
+  m_PrefabInstance: {fileID: 8554964197420448059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6593328715930280509 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3258744744087788294, guid: 13bf6653333f2405f909b0f877cf5d89,
     type: 3}
   m_PrefabInstance: {fileID: 8554964197420448059}
   m_PrefabAsset: {fileID: 0}
@@ -372,7 +392,7 @@ PrefabInstance:
     - target: {fileID: 3258744743371169072, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -382,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.55
+      value: 1.4845941
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -447,27 +467,32 @@ PrefabInstance:
     - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy Balloon
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814673
+      value: -0.03092378
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899991
+      value: 1.2661271
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.002472423
+      value: -0.028552316
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.0248245
+      value: 0.007118996
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -477,13 +502,19 @@ PrefabInstance:
     - target: {fileID: 3258744744877113773, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bf6653333f2405f909b0f877cf5d89, type: 3}
 --- !u!4 &6593328714954116824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
+    type: 3}
+  m_PrefabInstance: {fileID: 8554964197806855145}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6593328716350245103 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3258744744087788294, guid: 13bf6653333f2405f909b0f877cf5d89,
     type: 3}
   m_PrefabInstance: {fileID: 8554964197806855145}
   m_PrefabAsset: {fileID: 0}
@@ -502,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 3258744743371169072, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -512,7 +543,7 @@ PrefabInstance:
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2644781
+      value: -0.32988387
       objectReference: {fileID: 0}
     - target: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -577,27 +608,32 @@ PrefabInstance:
     - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy Balloon
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814576
+      value: -0.030923309
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.289999
+      value: 1.2661269
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0109408125
+      value: -0.019082569
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.016192138
+      value: 0.024234053
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -607,13 +643,19 @@ PrefabInstance:
     - target: {fileID: 3258744744877113773, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bf6653333f2405f909b0f877cf5d89, type: 3}
 --- !u!4 &6593328716793440062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3258744743371169073, guid: 13bf6653333f2405f909b0f877cf5d89,
+    type: 3}
+  m_PrefabInstance: {fileID: 8554964199100758543}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6593328715597586697 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3258744744087788294, guid: 13bf6653333f2405f909b0f877cf5d89,
     type: 3}
   m_PrefabInstance: {fileID: 8554964199100758543}
   m_PrefabAsset: {fileID: 0}

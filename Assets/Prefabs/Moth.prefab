@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7738741987185869206}
   - component: {fileID: 8488562035830101176}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bug Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5383006850488268314}
   m_Father: {fileID: 6679152944539139222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -92,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6679152944306208566}
   - component: {fileID: 6679152944306208521}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rope Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,13 +144,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6679152944539139222}
-  - component: {fileID: 3445485087324464822}
+  - component: {fileID: 4439385360147955836}
   - component: {fileID: 6679152944539139176}
   - component: {fileID: 6049685466149144568}
-  - component: {fileID: 7476886360910581208}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Moth
-  m_TagString: Player
+  m_TagString: Player Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3445485087324464822
+--- !u!114 &4439385360147955836
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,18 +182,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6679152944539139178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7e831ec467643f189ee93cd03ad02f, type: 3}
+  m_Script: {fileID: 11500000, guid: e32b51057e23541849e112f8d8a0e874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 400
-  jumpForce: 250
-  jumpCooldownLength: 5
-  maxMassMultiplier: 2
+  moveForce: 200
+  jumpForce: 200
+  jumpCooldownLength: 2
+  maxMassMultiplier: 1.5
   bugSprite: {fileID: 7738741987185869206}
   balloonSprites:
   - {fileID: 8180926312752882044}
   - {fileID: 8180926313273788280}
   - {fileID: 8180926313419381697}
+  energyRegenRate: 0.1
+  abilityEnergyCost: 0.25
+  shootProjectile: {fileID: 4084850006137422263, guid: 5a6e6b560a7a84514a0fc37efab36f6a,
+    type: 3}
+  shootPos: {fileID: 5383006850488268314}
+  shootForce: 200
 --- !u!50 &6679152944539139176
 Rigidbody2D:
   serializedVersion: 4
@@ -206,7 +212,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.3
+  m_Mass: 1.2
   m_LinearDrag: 0.25
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -228,25 +234,39 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.42723176, y: -0.25297317}
-  m_Size: {x: 1.7544174, y: 0.52088743}
+  m_Offset: {x: 0, y: -0.25}
+  m_Size: {x: 1.5, y: 0.5}
   m_Direction: 1
---- !u!70 &7476886360910581208
-CapsuleCollider2D:
+--- !u!1 &8290760866523410896
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6679152944539139178}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.7795033, y: -0.0000003015403}
-  m_Size: {x: 0.7878332, y: 0.28046653}
-  m_Direction: 1
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5383006850488268314}
+  m_Layer: 0
+  m_Name: Shoot Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5383006850488268314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8290760866523410896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.821, y: -0.323, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7738741987185869206}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6679152945286494844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -314,25 +334,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.2560005
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.03781447
+      value: -0.030923367
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899991
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.006671508
+      value: -0.018643033
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.022909861
+      value: 0.009643945
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -420,25 +445,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.587002
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814453
+      value: -0.03092337
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.2661271
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0017043366
+      value: -0.008883954
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.014791917
+      value: 0.025816178
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -526,25 +556,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -50.596
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814796
+      value: -0.030923545
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.0002595579
+      value: 0.013153948
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.0021411227
+      value: 0.036854174
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}

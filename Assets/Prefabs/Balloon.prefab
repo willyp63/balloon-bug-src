@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3258744743371169073}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Balloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3258744744087788289}
   - {fileID: 3258744744877113761}
+  - {fileID: 3258744744087788289}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3258744744087788291}
   - component: {fileID: 3258744744087788294}
   - component: {fileID: 3258744744087788295}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Balloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,11 +61,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258744744087788290}
   m_LocalRotation: {x: -0, y: -0, z: 0.16759971, w: 0.98585516}
-  m_LocalPosition: {x: -4.16, y: 0.14, z: 0.48284546}
+  m_LocalPosition: {x: -4.167, y: 0.155, z: 0.48284546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3258744743371169073}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.297}
 --- !u!114 &4501440150010371677
 MonoBehaviour:
@@ -144,13 +144,13 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 20
-  m_AngularDrag: 20
+  m_AngularDrag: 0
   m_GravityScale: -20
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &3258744744087788294
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +182,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -0.037814677, y: 1.2899992}
+  m_ConnectedAnchor: {x: -0.030923426, y: 1.2661269}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3258744744877113760}
   - component: {fileID: 3258744744877113763}
   - component: {fileID: 3258744744877113766}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,11 +218,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3258744744877113773}
   m_LocalRotation: {x: -0, y: -0, z: 0.167355, w: 0.98589677}
-  m_LocalPosition: {x: -3.6986172, y: -1.065261, z: 0.48284546}
+  m_LocalPosition: {x: -3.72, y: -1.03, z: 0.48284546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3258744743371169073}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.268002}
 --- !u!212 &3258744744877113760
 SpriteRenderer:
@@ -311,7 +311,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -3.6986172, y: -1.065261}
+  m_ConnectedAnchor: {x: -3.72, y: -1.03}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

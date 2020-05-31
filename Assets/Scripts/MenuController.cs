@@ -19,9 +19,9 @@ public class MenuController : MonoBehaviour
     MenuSelection.NumEnemies = 0;
   }
 
-  public void StartGame()
+  public void StartGame(string mapName)
   {
-    SceneManager.LoadScene("Scenes/GameScene");
+    SceneManager.LoadScene("Scenes/Maps/" + mapName);
   }
 
   public void SelectPlayer1Character(int character)

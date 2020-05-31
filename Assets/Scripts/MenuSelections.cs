@@ -1,6 +1,6 @@
 ﻿public static class MenuSelection
 {
-  private static int player1Character, player2Character, numEnemies;
+  private static int player1Character = 0, player2Character = 0, numEnemies = 5;
 
   public static int Player1Character
   {

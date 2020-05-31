@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6679152944306208566}
   - component: {fileID: 6679152944306208521}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Rope Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,12 +61,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6679152944539139222}
-  - component: {fileID: 3445485087324464822}
+  - component: {fileID: 7495241022303438504}
   - component: {fileID: 6679152944539139176}
   - component: {fileID: 6049685466149144568}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Beetle
-  m_TagString: Player
+  m_TagString: Player Bug
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,10 +87,11 @@ Transform:
   - {fileID: 8180926313637439309}
   - {fileID: 8180926314192945481}
   - {fileID: 8180926314044939760}
+  - {fileID: 5376657186981054048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3445485087324464822
+--- !u!114 &7495241022303438504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,18 +100,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 6679152944539139178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e7e831ec467643f189ee93cd03ad02f, type: 3}
+  m_Script: {fileID: 11500000, guid: d7151ef74d04c4f30b6ad9b1909b627f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 400
-  jumpForce: 250
-  jumpCooldownLength: 5
-  maxMassMultiplier: 2
+  moveForce: 300
+  jumpForce: 300
+  jumpCooldownLength: 2
+  maxMassMultiplier: 1.5
   bugSprite: {fileID: 3881323280791826431}
   balloonSprites:
   - {fileID: 8180926312752882044}
   - {fileID: 8180926313273788280}
   - {fileID: 8180926313419381697}
+  energyRegenRate: 0.1
+  abilityEnergyCost: 0.75
+  shoutSprite: {fileID: 8686715097519018709}
+  shoutForce: 700
+  shoutRadius: 12
+  shoutSpriteMaxScale: 35
+  shoutSpriteAnimationDurationn: 0.25
 --- !u!50 &6679152944539139176
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +131,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1.6
+  m_Mass: 1.5
   m_LinearDrag: 0.25
   m_AngularDrag: 0.25
   m_GravityScale: 1
@@ -145,9 +153,90 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04634599, y: -0.28308645}
-  m_Size: {x: 2.2236195, y: 1.0160741}
+  m_Offset: {x: 0, y: -0.28308645}
+  m_Size: {x: 2.15, y: 1.0160741}
   m_Direction: 1
+--- !u!1 &7003828124818956686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5376657186981054048}
+  - component: {fileID: 8686715097519018709}
+  m_Layer: 0
+  m_Name: shout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5376657186981054048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7003828124818956686}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.74, y: -0.39, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6679152944539139222}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &8686715097519018709
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7003828124818956686}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: ea96fbd954d2a413da69f70ae47d32b4, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.4, y: 4}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &7270400578845247799
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3881323280791826431}
   - component: {fileID: 8905583105004947154}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Bug Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,25 +386,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.359
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.037814587
+      value: -0.030923456
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.007778743
+      value: -0.033092994
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.018414134
+      value: 0.014139616
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -403,25 +497,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -21.484001
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.03781455
+      value: -0.03092325
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899992
+      value: 1.2661269
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.016204048
+      value: -0.023383768
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.010719065
+      value: 0.029889029
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
@@ -509,25 +608,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -50.492
       objectReference: {fileID: 0}
+    - target: {fileID: 3258744744087788290, guid: 13bf6653333f2405f909b0f877cf5d89,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player Balloon
+      objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.03781485
+      value: -0.030923124
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744087788295, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 1.2899991
+      value: 1.266127
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -0.015679786
+      value: -0.0022666538
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.0026150967
+      value: 0.04161051
       objectReference: {fileID: 0}
     - target: {fileID: 3258744744877113766, guid: 13bf6653333f2405f909b0f877cf5d89,
         type: 3}

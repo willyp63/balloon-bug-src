@@ -12,16 +12,18 @@ public class GameController : MonoBehaviour
   public Transform player2Spawn;
   public EnemyBug enemyBugPrefab;
   public List<Transform> enemySpawns;
+  public Slider player1EnergyBar;
+  public Slider player2EnergyBar;
 
   bool isPaused = false;
+  PlayerBug player1;
+  PlayerBug player2;
 
   void Start()
   {
-    Debug.Log(MenuSelection.Player1Character);
-    Debug.Log(MenuSelection.Player2Character);
-    PlayerBug player1 = Instantiate<PlayerBug>(characterPrefabs[MenuSelection.Player1Character], player1Spawn.position, characterPrefabs[MenuSelection.Player1Character].transform.rotation);
+    player1 = Instantiate<PlayerBug>(characterPrefabs[MenuSelection.Player1Character], player1Spawn.position, characterPrefabs[MenuSelection.Player1Character].transform.rotation);
     player1.SetIsPlayer2(false);
-    PlayerBug player2 = Instantiate<PlayerBug>(characterPrefabs[MenuSelection.Player2Character], player2Spawn.position, characterPrefabs[MenuSelection.Player2Character].transform.rotation);
+    player2 = Instantiate<PlayerBug>(characterPrefabs[MenuSelection.Player2Character], player2Spawn.position, characterPrefabs[MenuSelection.Player2Character].transform.rotation);
     player2.SetIsPlayer2(true);
 
     List<Transform> availableEnemySpawns = new List<Transform>(enemySpawns);
@@ -56,7 +58,7 @@ public class GameController : MonoBehaviour
 
   void Update()
   {
-    if (GameObject.FindGameObjectsWithTag("Player").Length == 0 || (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Player").Length <= 1))
+    if (GameObject.FindGameObjectsWithTag("Player Bug").Length == 0 || (GameObject.FindGameObjectsWithTag("Enemy Bug").Length == 0 && GameObject.FindGameObjectsWithTag("Player Bug").Length <= 1))
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -65,6 +67,9 @@ public class GameController : MonoBehaviour
     {
       SceneManager.LoadScene("Scenes/MenuScene");
     }
+
+    player1EnergyBar.value = player1.GetEnergy();
+    player2EnergyBar.value = player2.GetEnergy();
   }
 
   public bool IsPaused()
@@ -74,12 +79,12 @@ public class GameController : MonoBehaviour
 
   private void Pause()
   {
-    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy"))
+    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy Bug"))
     {
       gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
 
-    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Player"))
+    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Player Bug"))
     {
       gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
     }
@@ -89,12 +94,12 @@ public class GameController : MonoBehaviour
 
   private void Resume()
   {
-    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy"))
+    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy Bug"))
     {
       gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 
-    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Player"))
+    foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Player Bug"))
     {
       gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
