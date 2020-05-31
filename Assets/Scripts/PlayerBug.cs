@@ -13,7 +13,7 @@ public abstract class PlayerBug : Bug
 
   float energy = 0f;
 
-  protected abstract void UseAbility();
+  protected abstract void UseAbility(int abilityIndex);
 
   public float GetEnergy()
   {
@@ -46,12 +46,12 @@ public abstract class PlayerBug : Bug
       Jump();
     }
 
-    if (Input.GetKeyDown(isPlayer2 ? KeyCode.DownArrow : KeyCode.S))
+    if (Input.GetKeyDown(isPlayer2 ? KeyCode.DownArrow : KeyCode.Alpha1))
     {
       if (energy >= abilityEnergyCost)
       {
         energy -= abilityEnergyCost;
-        UseAbility();
+        UseAbility(0);
       }
     }
   }

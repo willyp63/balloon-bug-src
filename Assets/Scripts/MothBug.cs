@@ -8,7 +8,7 @@ public class MothBug : PlayerBug
   public Transform shootPos;
   public float shootForce = 600f;
 
-  protected override void UseAbility()
+  protected override void UseAbility(int abilityIndex)
   {
     var projectile = Instantiate(shootProjectile, shootPos.position, Quaternion.identity);
     projectile.AddForce(new Vector2(isFacingRight ? 1f : -1f, 0.2f) * shootForce);

@@ -6,8 +6,13 @@ public class FlyBug : PlayerBug
 {
   public float blinkForce = 1f;
 
-  protected override void UseAbility()
+    protected override void UseAbility(int abilityIndex)
   {
-    rb.AddForce(new Vector2(isFacingRight ? 1 : -1, 0) * blinkForce);
-  }
+        switch(abilityIndex)
+        {
+            case 0:
+        rb.AddForce(new Vector2(isFacingRight ? 1 : -1, 0) * blinkForce);
+                break;
+        }
+    }
 }

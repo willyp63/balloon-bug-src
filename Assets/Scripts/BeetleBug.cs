@@ -13,7 +13,7 @@ public class BeetleBug : PlayerBug
 
   bool isShowingShoutSprite = false;
 
-  protected override void UseAbility()
+  protected override void UseAbility(int abilityIndex)
   {
     StartCoroutine(ShowShoutSprite());
 

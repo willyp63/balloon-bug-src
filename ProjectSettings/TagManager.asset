@@ -12,6 +12,7 @@ TagManager:
   - Player Balloon
   - Enemy Balloon
   - Balloon Hazard
+  - Action_bar_1
   layers:
   - Default
   - TransparentFX
